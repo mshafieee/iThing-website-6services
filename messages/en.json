@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "industries": "Industries",
+    "platform": "Platform",
+    "usecases": "Use Cases",
+    "about": "About",
+    "cta": "Request Demo",
+    "ihotel": "iHotel",
+    "ibms": "iBMS",
+    "ifactory": "iFactory",
+    "iagrix": "iAgrix",
+    "irtls": "iRTLS",
+    "imedical": "iMedical"
+  },
+  "home": {
+    "heroTitle": "The IoT Platform Built for the Future",
+    "heroSubtitle": "Six purpose-built IoT solutions for hospitality, smart buildings, industrial, agriculture, logistics, and healthcare — all powered by the iThing platform.",
+    "heroCta1": "Explore Solutions",
+    "heroCta2": "Request a Demo",
+    "statsTitle": "Trusted across industries in Saudi Arabia & the Middle East",
+    "productsTitle": "One Platform. Six Industries. Limitless Potential.",
+    "productsSubtitle": "Every iThing solution is purpose-built for its industry, yet runs on the same proven IoT platform — giving you a consistent experience and a single vendor relationship.",
+    "techTitle": "Platform Technology at a Glance",
+    "techSubtitle": "Built on enterprise-grade infrastructure with edge-to-cloud architecture and multi-protocol connectivity.",
+    "ctaTitle": "Ready to connect your operations?",
+    "ctaSubtitle": "Talk to our IoT specialists about your industry challenges and get a tailored demo.",
+    "ctaButton": "Request a Free Consultation"
+  },
+  "solutions": {
+    "title": "Our Solutions",
+    "subtitle": "Six purpose-built IoT platforms, each designed around the specific workflows, regulations, and outcomes of its industry.",
+    "learnMore": "Learn More",
+    "features": "Key Features",
+    "useCases": "Use Cases",
+    "industries": "Target Industries",
+    "stats": "Proven Results",
+    "cta": "Schedule a Demo",
+    "ctaDesc": "See how {name} can transform your operations."
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "subtitle": "From hospitality to healthcare, iThing has purpose-built IoT solutions for the sectors that power the region's economy.",
+    "items": {
+      "hospitality": { "name": "Hospitality & Tourism", "desc": "Smart hotel rooms, guest portals, and energy management for hotels, resorts, and serviced apartments." },
+      "buildings": { "name": "Smart Buildings", "desc": "Centralised BMS for malls, offices, government buildings, and campuses." },
+      "industrial": { "name": "Industrial & Manufacturing", "desc": "Predictive maintenance, quality control, and factory floor intelligence." },
+      "agriculture": { "name": "Agriculture & Food Security", "desc": "Precision farming, smart irrigation, and crop-specific AI recommendations." },
+      "logistics": { "name": "Logistics & Supply Chain", "desc": "End-to-end fleet tracking, cold chain monitoring, and warehouse automation." },
+      "healthcare": { "name": "Healthcare", "desc": "Patient monitoring, indoor RTLS, and medical asset management." }
+    }
+  },
+  "platform": {
+    "title": "The iThing Platform",
+    "subtitle": "One unified IoT platform powering six industry solutions — with enterprise-grade reliability, security, and scalability.",
+    "features": {
+      "connectivity": { "title": "Multi-Protocol Connectivity", "desc": "BLE, RFID, UWB, GPS, 4G/5G, WiFi, LoRaWAN, MQTT, and Modbus — connect any device." },
+      "analytics": { "title": "AI & Advanced Analytics", "desc": "Machine learning for anomaly detection with 85%+ accuracy. Predictive insights, not just data." },
+      "realtime": { "title": "Real-Time Monitoring", "desc": "100–500 Hz sensor sampling with edge processing for sub-second response to critical events." },
+      "integration": { "title": "Enterprise Integration", "desc": "Native connectors for CMMS, ERP, EMR, WMS, and HIS systems." },
+      "scale": { "title": "Massive Scale", "desc": "Cloud infrastructure supporting 50,000+ simultaneously tracked objects per deployment." },
+      "mobile": { "title": "Mobile-First Access", "desc": "Full operational control from any device — smartphone, tablet, or desktop." },
+      "security": { "title": "Enterprise Security", "desc": "End-to-end encryption, role-based access, audit logs, and PDPL/HIPAA compliance." },
+      "edge": { "title": "Edge Computing", "desc": "Process data at the source for latency-sensitive industrial and medical applications." }
+    }
+  },
+  "usecases": {
+    "title": "Use Cases",
+    "subtitle": "Real-world applications of the iThing platform across industries.",
+    "items": [
+      { "product": "iHotel", "title": "5-Star Hotel Chain — Room Automation", "desc": "300-room hotel deployed iHotel across all floors. Energy bills reduced by 38%, guest service response time cut from 12 minutes to under 2 minutes via in-room SOS and digital MUR requests.", "result": "38% energy savings · 83% faster service" },
+      { "product": "iBMS", "title": "Shopping Mall — Centralised Building Control", "desc": "A regional mall with 180,000 sqm deployed iBMS for HVAC, lighting, and access. Achieved 31% reduction in energy spend and cut facility management headcount needed by 40%.", "result": "31% energy reduction · 40% fewer FM staff needed" },
+      { "product": "iFactory", "title": "Food Processing Plant — Predictive Maintenance", "desc": "Manufacturer deployed vibration and temperature sensors on 120 production machines. iFactory predicted 14 failures over 6 months before they occurred, saving an estimated SAR 2.4M in unplanned downtime.", "result": "SAR 2.4M downtime savings in 6 months" },
+      { "product": "iAgrix", "title": "Desert Farm — Precision Irrigation", "desc": "A 500-hectare farm in the Eastern Province installed soil sensors and automated drip irrigation. Water consumption dropped 43% while tomato yield improved 27% in the first season.", "result": "43% water saved · 27% yield increase" },
+      { "product": "iRTLS", "title": "Pharmaceutical Cold Chain — Temperature Monitoring", "desc": "Distributor tracks 800 active shipments daily. Temperature breaches detected in real time, reducing product loss by 91%. Full cold chain traceability provided for regulatory reporting.", "result": "91% reduction in cold chain losses" },
+      { "product": "iMedical", "title": "Private Hospital — Medical Asset Tracking", "desc": "280-bed hospital deployed RTLS for 1,200 tagged assets. Average equipment search time dropped from 22 minutes to under 90 seconds, recovering 4+ hours of nurse time per shift.", "result": "22 min → 90 sec asset location time" }
+    ]
+  },
+  "about": {
+    "title": "About iThing",
+    "subtitle": "We build the IoT infrastructure that connects Saudi Arabia's industries to the future.",
+    "mission": "Our Mission",
+    "missionText": "To accelerate digital transformation across the Middle East by delivering purpose-built, enterprise-grade IoT solutions that deliver measurable ROI from day one.",
+    "vision": "Our Vision",
+    "visionText": "A region where every building, factory, farm, hospital, and hotel operates with real-time intelligence — eliminating waste, improving safety, and unlocking new possibilities.",
+    "contact": "Contact Us",
+    "email": "m.shafiee.osama@outlook.com",
+    "phone": "+966 56 207 7165",
+    "location": "Saudi Arabia — serving the GCC & Middle East",
+    "ctaTitle": "Let's talk about your project",
+    "ctaButton": "Get in Touch"
+  },
+  "footer": {
+    "tagline": "Purpose-built IoT solutions for hospitality, buildings, industrial, agriculture, logistics, and healthcare.",
+    "solutions": "Solutions",
+    "company": "Company",
+    "contact": "Contact",
+    "rights": "© {year} iThing. All rights reserved."
+  },
+  "common": {
+    "readMore": "Read More",
+    "back": "Back",
+    "contactSales": "Contact Sales",
+    "scheduleDemo": "Schedule a Demo",
+    "learnMore": "Learn More →"
+  }
+}
