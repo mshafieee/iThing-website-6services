@@ -26,7 +26,11 @@ export default function SolutionsPage({ params: { locale } }) {
               <div key={p.slug} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
                 {/* Color header */}
                 <div className={`bg-gradient-to-r ${p.bgFrom} ${p.bgTo} p-8`}>
-                  <span className="text-5xl">{p.icon}</span>
+                  {p.image ? (
+                    <img src={p.image} alt={p.name} className="w-12 h-12 object-cover rounded" />
+                  ) : (
+                    <span className="text-5xl">{p.icon}</span>
+                  )}
                   <h2 className="text-2xl font-black text-white mt-3">{p.name}</h2>
                   <p className="text-white/80 text-sm mt-1">{p.tagline}</p>
                 </div>

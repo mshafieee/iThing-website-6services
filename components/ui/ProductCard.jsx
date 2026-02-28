@@ -8,7 +8,11 @@ export default function ProductCard({ product }) {
       className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-200 border border-gray-100 hover:border-gray-200 border-t-4"
       style={{ borderTopColor: p.color }}>
       <div className="flex items-start justify-between mb-4">
-        <span className="text-4xl">{p.icon}</span>
+        {p.image ? (
+          <img src={p.image} alt={p.name} className="w-16 h-16 object-cover rounded-lg" />
+        ) : (
+          <span className="text-4xl">{p.icon}</span>
+        )}
         <ChevronRight size={18} className="text-gray-300 group-hover:text-gray-500 group-hover:translate-x-1 transition-all" />
       </div>
       <h3 className="text-xl font-black text-gray-900 mb-1">{p.name}</h3>

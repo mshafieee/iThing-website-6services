@@ -37,7 +37,9 @@ export default function Footer() {
                 <li key={p.slug}>
                   <Link href={`/solutions/${p.slug}`}
                     className="text-sm hover:text-white transition flex items-center gap-1.5">
-                    <span>{p.icon}</span> {p.name}
+                    <span>
+                      {p.image ? <img src={p.image} alt={p.name} className="w-4 h-4 object-cover rounded" /> : p.icon}
+                    </span> {p.name}
                   </Link>
                 </li>
               ))}

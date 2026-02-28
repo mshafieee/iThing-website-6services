@@ -50,7 +50,9 @@ export default function Navbar() {
                   {PRODUCTS.map(p => (
                     <Link key={p.slug} href={`/solutions/${p.slug}`}
                       className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-50 transition group">
-                      <span className="text-lg">{p.icon}</span>
+                      <span className="text-lg">
+                        {p.image ? <img src={p.image} alt={p.name} className="w-5 h-5 object-cover rounded" /> : p.icon}
+                      </span>
                       <span className="text-sm font-semibold text-gray-700 group-hover:text-gray-900">{p.name}</span>
                     </Link>
                   ))}
@@ -98,7 +100,9 @@ export default function Navbar() {
           {PRODUCTS.map(p => (
             <Link key={p.slug} href={`/solutions/${p.slug}`} onClick={() => setOpen(false)}
               className="flex items-center gap-2 ps-6 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">
-              <span>{p.icon}</span> {p.name}
+              <span>
+                {p.image ? <img src={p.image} alt={p.name} className="w-5 h-5 object-cover rounded" /> : p.icon}
+              </span> {p.name}
             </Link>
           ))}
           {links.slice(1).map(l => (

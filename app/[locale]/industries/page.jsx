@@ -33,9 +33,13 @@ export default function IndustriesPage({ params: { locale } }) {
               return (
                 <div key={ind.key} className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden"
                       style={{ background: ind.color + '14' }}>
-                      {ind.icon}
+                      {relatedProducts[0]?.image ? (
+                        <img src={relatedProducts[0].image} alt={item.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="text-2xl">{ind.icon}</span>
+                      )}
                     </div>
                     <div>
                       <h3 className="font-black text-gray-900">{item.name}</h3>
@@ -47,7 +51,7 @@ export default function IndustriesPage({ params: { locale } }) {
                       <Link key={p.slug} href={`/solutions/${p.slug}`}
                         className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold transition"
                         style={{ background: p.color + '14', color: p.color }}>
-                        {p.icon} {p.name} <ArrowRight size={12} />
+                        {p.image ? <img src={p.image} alt={p.name} className="w-4 h-4 object-cover rounded" /> : <span>{p.icon}</span>} {p.name} <ArrowRight size={12} />
                       </Link>
                     ))}
                   </div>

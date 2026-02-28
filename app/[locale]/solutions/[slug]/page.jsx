@@ -36,7 +36,13 @@ export default function ProductPage({ params: { locale, slug } }) {
           <Link href="/solutions" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium mb-8 transition">
             <ArrowLeft size={16} /> {t('title')}
           </Link>
-          <div className="text-6xl mb-4">{p.icon}</div>
+          <div className="mb-4">
+            {p.image ? (
+              <img src={p.image} alt={p.name} className="w-24 h-24 object-cover rounded-lg mx-auto" />
+            ) : (
+              <div className="text-6xl text-white">{p.icon}</div>
+            )}
+          </div>
           <h1 className="text-5xl lg:text-7xl font-black text-white mb-3">{p.name}</h1>
           <p className="text-white/80 text-xl lg:text-2xl font-semibold mb-6">{p.tagline}</p>
           <p className="text-white/70 text-lg max-w-3xl leading-relaxed">{p.description}</p>
@@ -128,7 +134,11 @@ export default function ProductPage({ params: { locale, slug } }) {
             {otherProducts.map(op => (
               <Link key={op.slug} href={`/solutions/${op.slug}`}
                 className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition group">
-                <span className="text-3xl">{op.icon}</span>
+                {op.image ? (
+                  <img src={op.image} alt={op.name} className="w-8 h-8 object-cover rounded" />
+                ) : (
+                  <span className="text-3xl">{op.icon}</span>
+                )}
                 <div>
                   <div className="font-black text-gray-900">{op.name}</div>
                   <div className="text-xs text-gray-500 font-medium">{op.tagline}</div>
