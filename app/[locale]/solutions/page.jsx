@@ -14,6 +14,7 @@ export async function generateMetadata() {
 export default function SolutionsPage({ params: { locale } }) {
   setRequestLocale(locale);
   const t = useTranslations('solutions');
+  const tp = useTranslations('products');
 
   return (
     <div>
@@ -27,39 +28,35 @@ export default function SolutionsPage({ params: { locale } }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PRODUCTS.map(p => {
               const Icon = ICON_MAP[p.lucideIcon] || Building;
+              const pt = tp.raw(p.slug);
               return (
                 <div key={p.slug} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col">
-                  {/* Header */}
                   <div className="p-6 border-b border-gray-100" style={{ borderTopWidth: 4, borderTopColor: p.color, borderTopStyle: 'solid' }}>
-                    <div className="flex items-center gap-3 mb-1">
+                    <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: p.color + '18' }}>
                         <Icon size={20} style={{ color: p.color }} />
                       </div>
                       <div>
                         <h2 className="text-xl font-black text-gray-900 leading-tight">{p.name}</h2>
-                        <p className="text-xs font-semibold" style={{ color: p.color }}>{p.tagline}</p>
+                        <p className="text-xs font-semibold" style={{ color: p.color }}>{pt.tagline}</p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Dashboard preview */}
                   <div className="px-4 pt-4">
-                    <DashboardPreview slug={p.slug} />
+                    <DashboardPreview slug={p.slug} locale={locale} />
                   </div>
 
                   <div className="p-6 flex-1 flex flex-col">
-                    <p className="text-gray-600 text-sm leading-relaxed mb-5">{p.shortDesc}</p>
-
-                    {/* Stats */}
+                    <p className="text-gray-600 text-sm leading-relaxed mb-5">{pt.shortDesc}</p>
                     <div className="grid grid-cols-2 gap-2 mb-5">
-                      {p.stats.map(s => (
-                        <div key={s.label} className="text-center p-2.5 rounded-xl" style={{ background: p.color + '0F' }}>
+                      {p.stats.map((s, i) => (
+                        <div key={i} className="text-center p-2.5 rounded-xl" style={{ background: p.color + '0F' }}>
                           <div className="font-black text-base" style={{ color: p.color }}>{s.value}</div>
-                          <div className="text-[10px] text-gray-500 font-medium leading-tight">{s.label}</div>
+                          <div className="text-[10px] text-gray-500 font-medium leading-tight">{pt.statLabels[i]}</div>
                         </div>
                       ))}
                     </div>
-
                     <Link href={`/solutions/${p.slug}`}
                       className="mt-auto flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm transition hover:opacity-90"
                       style={{ background: p.color, color: 'white' }}>

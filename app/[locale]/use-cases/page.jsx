@@ -1,6 +1,9 @@
 import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
+import { Building, Building2, Factory, Leaf, Truck, Activity } from 'lucide-react';
 import { PRODUCTS } from '../../../lib/products';
+
+const ICON_MAP = { Building, Building2, Factory, Leaf, Truck, Activity };
 
 export default function UseCasesPage({ params: { locale } }) {
   setRequestLocale(locale);
@@ -18,10 +21,13 @@ export default function UseCasesPage({ params: { locale } }) {
         <div className="max-w-5xl mx-auto px-4 space-y-6">
           {items.map((item, i) => {
             const product = PRODUCTS.find(p => p.name === item.product);
+            const Icon = product ? (ICON_MAP[product.lucideIcon] || Building) : Building;
             return (
               <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl shrink-0">{product?.icon}</div>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: (product?.color || '#2563EB') + '18' }}>
+                    <Icon size={20} style={{ color: product?.color || '#2563EB' }} />
+                  </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
                       <span className="text-xs font-bold px-2 py-0.5 rounded-lg" style={{ background: product?.color + '14', color: product?.color }}>

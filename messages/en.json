@@ -15,6 +15,7 @@
     "imedical": "iMedical"
   },
   "home": {
+    "heroBadge": "Saudi Arabia & Middle East",
     "heroTitle": "The IoT Platform Built for the Future",
     "heroSubtitle": "Six purpose-built IoT solutions for hospitality, smart buildings, industrial, agriculture, logistics, and healthcare — all powered by the iThing platform.",
     "heroCta1": "Explore Solutions",
@@ -23,7 +24,7 @@
     "productsTitle": "One Platform. Six Industries. Limitless Potential.",
     "productsSubtitle": "Every iThing solution is purpose-built for its industry, yet runs on the same proven IoT platform — giving you a consistent experience and a single vendor relationship.",
     "techTitle": "Platform Technology at a Glance",
-    "techSubtitle": "Built on enterprise-grade infrastructure with edge-to-cloud architecture and multi-protocol connectivity.",
+    "techSubtitle": "Built on enterprise-grade infrastructure with on-device processing and multi-protocol connectivity.",
     "ctaTitle": "Ready to connect your operations?",
     "ctaSubtitle": "Talk to our IoT specialists about your industry challenges and get a tailored demo.",
     "ctaButton": "Request a Free Consultation"
@@ -37,7 +38,8 @@
     "industries": "Target Industries",
     "stats": "Proven Results",
     "cta": "Schedule a Demo",
-    "ctaDesc": "See how {name} can transform your operations."
+    "ctaDesc": "See how {name} can transform your operations.",
+    "exploreOther": "Explore Other Solutions"
   },
   "industries": {
     "title": "Industries We Serve",
@@ -45,24 +47,26 @@
     "items": {
       "hospitality": { "name": "Hospitality & Tourism", "desc": "Smart hotel rooms, guest portals, and energy management for hotels, resorts, and serviced apartments." },
       "buildings": { "name": "Smart Buildings", "desc": "Centralised BMS for malls, offices, government buildings, and campuses." },
-      "industrial": { "name": "Industrial & Manufacturing", "desc": "Predictive maintenance, quality control, and factory floor intelligence." },
+      "industrial": { "name": "Industrial & Manufacturing", "desc": "Detect faults before they happen, monitor quality, and run smarter factory floors." },
       "agriculture": { "name": "Agriculture & Food Security", "desc": "Precision farming, smart irrigation, and crop-specific AI recommendations." },
       "logistics": { "name": "Logistics & Supply Chain", "desc": "End-to-end fleet tracking, cold chain monitoring, and warehouse automation." },
-      "healthcare": { "name": "Healthcare", "desc": "Patient monitoring, indoor RTLS, and medical asset management." }
+      "healthcare": { "name": "Healthcare", "desc": "Remote patient monitoring, indoor location tracking, and medical asset management." }
     }
   },
   "platform": {
     "title": "The iThing Platform",
     "subtitle": "One unified IoT platform powering six industry solutions — with enterprise-grade reliability, security, and scalability.",
+    "architectureTitle": "End-to-End Data Flow",
+    "layers": ["Edge Sensors", "Local Gateway", "Cloud Platform", "Dashboard / API"],
     "features": {
-      "connectivity": { "title": "Multi-Protocol Connectivity", "desc": "BLE, RFID, UWB, GPS, 4G/5G, WiFi, LoRaWAN, MQTT, and Modbus — connect any device." },
-      "analytics": { "title": "AI & Advanced Analytics", "desc": "Machine learning for anomaly detection with 85%+ accuracy. Predictive insights, not just data." },
-      "realtime": { "title": "Real-Time Monitoring", "desc": "100–500 Hz sensor sampling with edge processing for sub-second response to critical events." },
-      "integration": { "title": "Enterprise Integration", "desc": "Native connectors for CMMS, ERP, EMR, WMS, and HIS systems." },
-      "scale": { "title": "Massive Scale", "desc": "Cloud infrastructure supporting 50,000+ simultaneously tracked objects per deployment." },
-      "mobile": { "title": "Mobile-First Access", "desc": "Full operational control from any device — smartphone, tablet, or desktop." },
-      "security": { "title": "Enterprise Security", "desc": "End-to-end encryption, role-based access, audit logs, and PDPL/HIPAA compliance." },
-      "edge": { "title": "Edge Computing", "desc": "Process data at the source for latency-sensitive industrial and medical applications." }
+      "connectivity": { "title": "Multi-Protocol Connectivity", "desc": "BLE, RFID, UWB, GPS, 4G/5G, WiFi, LoRaWAN, MQTT, and Modbus — connect any device, any protocol." },
+      "analytics": { "title": "AI & Advanced Analytics", "desc": "Machine learning that detects faults before they happen with 85%+ accuracy. Predictive insights, not just data." },
+      "realtime": { "title": "Real-Time Monitoring", "desc": "100–500 Hz sensor sampling with on-device processing for sub-second response to critical events." },
+      "integration": { "title": "Enterprise Integration", "desc": "Native connectors for maintenance (CMMS), enterprise planning (ERP), medical records (EMR), and warehouse (WMS) systems." },
+      "scale": { "title": "Massive Scale", "desc": "Cloud infrastructure supporting 50,000+ simultaneously tracked objects per deployment — grows with you." },
+      "mobile": { "title": "Control From Anywhere", "desc": "Full operational control from any device — smartphone, tablet, or desktop — anytime, anywhere." },
+      "security": { "title": "Enterprise Security", "desc": "End-to-end encryption, role-based access, audit logs, and full compliance with PDPL and international data protection standards." },
+      "edge": { "title": "On-Device Processing", "desc": "Data is processed locally at the controller or smart gateway — no cloud round-trip needed — ensuring instant response for time-critical applications." }
     }
   },
   "usecases": {
@@ -71,7 +75,7 @@
     "items": [
       { "product": "iHotel", "title": "5-Star Hotel Chain — Room Automation", "desc": "300-room hotel deployed iHotel across all floors. Energy bills reduced by 38%, guest service response time cut from 12 minutes to under 2 minutes via in-room SOS and digital MUR requests.", "result": "38% energy savings · 83% faster service" },
       { "product": "iBMS", "title": "Shopping Mall — Centralised Building Control", "desc": "A regional mall with 180,000 sqm deployed iBMS for HVAC, lighting, and access. Achieved 31% reduction in energy spend and cut facility management headcount needed by 40%.", "result": "31% energy reduction · 40% fewer FM staff needed" },
-      { "product": "iFactory", "title": "Food Processing Plant — Predictive Maintenance", "desc": "Manufacturer deployed vibration and temperature sensors on 120 production machines. iFactory predicted 14 failures over 6 months before they occurred, saving an estimated SAR 2.4M in unplanned downtime.", "result": "SAR 2.4M downtime savings in 6 months" },
+      { "product": "iFactory", "title": "Food Processing Plant — Early Fault Detection", "desc": "Manufacturer deployed vibration and temperature sensors on 120 production machines. iFactory predicted 14 failures over 6 months before they occurred, saving an estimated SAR 2.4M in unplanned downtime.", "result": "SAR 2.4M downtime savings in 6 months" },
       { "product": "iAgrix", "title": "Desert Farm — Precision Irrigation", "desc": "A 500-hectare farm in the Eastern Province installed soil sensors and automated drip irrigation. Water consumption dropped 43% while tomato yield improved 27% in the first season.", "result": "43% water saved · 27% yield increase" },
       { "product": "iRTLS", "title": "Pharmaceutical Cold Chain — Temperature Monitoring", "desc": "Distributor tracks 800 active shipments daily. Temperature breaches detected in real time, reducing product loss by 91%. Full cold chain traceability provided for regulatory reporting.", "result": "91% reduction in cold chain losses" },
       { "product": "iMedical", "title": "Private Hospital — Medical Asset Tracking", "desc": "280-bed hospital deployed RTLS for 1,200 tagged assets. Average equipment search time dropped from 22 minutes to under 90 seconds, recovering 4+ hours of nurse time per shift.", "result": "22 min → 90 sec asset location time" }
@@ -88,6 +92,9 @@
     "email": "m.shafiee.osama@outlook.com",
     "phone": "+966 56 207 7165",
     "location": "Saudi Arabia — serving the GCC & Middle East",
+    "emailLabel": "Email",
+    "whatsappLabel": "WhatsApp",
+    "locationLabel": "Location",
     "ctaTitle": "Let's talk about your project",
     "ctaButton": "Get in Touch"
   },
@@ -96,6 +103,7 @@
     "solutions": "Solutions",
     "company": "Company",
     "contact": "Contact",
+    "location": "Saudi Arabia · GCC · Middle East",
     "rights": "© {year} iThing. All rights reserved."
   },
   "common": {
@@ -104,5 +112,115 @@
     "contactSales": "Contact Sales",
     "scheduleDemo": "Schedule a Demo",
     "learnMore": "Learn More →"
+  },
+  "products": {
+    "ihotel": {
+      "tagline": "Smart Hospitality, Redefined",
+      "shortDesc": "Complete IoT platform for hotels, resorts, and BnBs — from room automation to guest experience management.",
+      "description": "iHotel transforms any accommodation into a smart, connected property. Control lighting, AC, curtains, and door locks from a unified dashboard. Monitor energy consumption in real time, manage reservations via a built-in PMS, and let guests control their own room via a QR-code-linked self-service portal.",
+      "features": [
+        "Room automation — lights, AC, curtains, blinds, door lock",
+        "Live occupancy heatmap across all floors",
+        "Built-in PMS: reservations, check-in, check-out",
+        "Guest self-service portal via QR code link",
+        "SOS, Make-Up-Room, Do-Not-Disturb service system",
+        "Power-down mode for unoccupied rooms",
+        "Real-time telemetry: temperature, humidity, CO₂, motion",
+        "Staff shift management & audit logs"
+      ],
+      "statLabels": ["Energy Savings", "Faster Service", "Real-Time Visibility", "Remote Monitoring"],
+      "useCases": ["5-star hotels", "Budget hotel chains", "Serviced apartments", "BnB & boutique stays"],
+      "industries": ["Hospitality", "Real Estate", "Tourism"]
+    },
+    "ibms": {
+      "tagline": "Intelligent Buildings, Optimised Operations",
+      "shortDesc": "Building Management System for commercial spaces, malls, government buildings, and campuses.",
+      "description": "iBMS delivers centralised control over every building system — HVAC, lighting, access control, energy metering, and elevator monitoring — from a single intelligent dashboard. Designed for facility managers who demand maximum uptime with minimum operational cost.",
+      "features": [
+        "HVAC centralised control & scheduling",
+        "Energy metering per zone, floor & tenant",
+        "Access control & visitor management",
+        "Elevator & escalator health monitoring",
+        "Predictive maintenance alerts",
+        "Space utilisation & occupancy analytics",
+        "Fire & safety system integration",
+        "Multi-building campus management"
+      ],
+      "statLabels": ["Energy Cost Savings", "Maintenance Cost Reduction", "System Uptime", "Avg. Fault Response"],
+      "useCases": ["Shopping malls", "Government ministries", "Corporate campuses", "Universities", "Airports"],
+      "industries": ["Commercial Real Estate", "Government", "Education", "Retail"]
+    },
+    "ifactory": {
+      "tagline": "Industrial Intelligence at Scale",
+      "shortDesc": "IoT platform for manufacturing, quality control, predictive maintenance, and industrial BMS.",
+      "description": "iFactory connects every machine, sensor, and production line into one intelligent industrial ecosystem. Detect anomalies before they become failures, track quality in real time, and optimise throughput with actionable AI-driven insights — all while maintaining full safety and compliance oversight.",
+      "features": [
+        "Predictive maintenance with 85%+ fault detection accuracy",
+        "Real-time machine health & vibration monitoring",
+        "Production line OEE & throughput tracking",
+        "Quality control defect detection & reporting",
+        "Energy & utility consumption per asset",
+        "Worker safety & environmental monitoring (gas, dust, temp)",
+        "CMMS & ERP system integration",
+        "On-device processing for sub-second response"
+      ],
+      "statLabels": ["Downtime Reduction", "Maintenance Cost Savings", "Fault Detection Accuracy", "Production Efficiency"],
+      "useCases": ["Automotive manufacturing", "Food & beverage", "Pharmaceutical production", "Oil & gas refineries", "Electronics fabrication"],
+      "industries": ["Manufacturing", "Industrial", "Oil & Gas", "Pharmaceutical"]
+    },
+    "iagrix": {
+      "tagline": "Precision Agriculture, Smarter Harvests",
+      "shortDesc": "IoT platform for soil monitoring, smart irrigation, crop automation, and agricultural AI insights.",
+      "description": "iAgrix brings precision agriculture to every farm — from vast open fields to climate-controlled greenhouses. Monitor soil moisture, temperature, electrical conductivity, and pH in real time. Automate irrigation per crop type, cut water consumption significantly, and receive AI-powered recommendations tailored to each crop to maximise yield.",
+      "features": [
+        "Soil parameter monitoring: moisture, temp, EC, pH, NPK",
+        "Automated drip & sprinkler irrigation control",
+        "Crop-type-specific watering schedules & recommendations",
+        "Water consumption analytics & savings dashboard",
+        "Weather station integration & forecast-based irrigation",
+        "Greenhouse climate control (temp, humidity, CO₂)",
+        "Yield prediction & harvest planning reports",
+        "Remote farm management via mobile app"
+      ],
+      "statLabels": ["Water Savings", "Yield Increase", "Labour Cost Reduction", "Soil & Climate Data"],
+      "useCases": ["Open-field crop farms", "Greenhouses", "Orchards & vineyards", "Vertical farms", "Government food-security projects"],
+      "industries": ["Agriculture", "Food Production", "Government"]
+    },
+    "irtls": {
+      "tagline": "Track Everything. Miss Nothing.",
+      "shortDesc": "Real-time logistics platform for fleet management, cold chain monitoring, goods tracking, and route intelligence.",
+      "description": "iRTLS delivers complete supply chain visibility from warehouse to last mile. Track trucks, containers, and high-value goods using GPS, BLE, RFID, and UWB. Monitor temperature throughout cold chains, optimise delivery routes, and receive instant alerts for deviations, tampering, or unexpected delays.",
+      "features": [
+        "Multi-technology tracking: GPS + BLE + RFID + UWB",
+        "Cold chain temperature monitoring & breach alerts",
+        "Geofencing & route deviation notifications",
+        "Fleet fuel efficiency & idling analytics",
+        "Container and pallet-level asset tracking",
+        "50,000+ simultaneous tracked objects per deployment",
+        "ERP & WMS integration",
+        "Driver behaviour & safety scoring"
+      ],
+      "statLabels": ["Location Update Latency", "Tracked Objects / Deployment", "Fuel Cost Reduction", "Tracking Uptime"],
+      "useCases": ["Pharmaceutical cold chain", "Food & beverage distribution", "Retail logistics", "Port & container yards", "Government fleet management"],
+      "industries": ["Logistics", "Supply Chain", "Retail", "Pharmaceutical", "Government"]
+    },
+    "imedical": {
+      "tagline": "Connected Healthcare, Safer Outcomes",
+      "shortDesc": "Healthcare IoT platform for patient monitoring, medical asset tracking, and hospital operations management.",
+      "description": "iMedical connects patients, clinical staff, and medical assets across the hospital ecosystem. Track critical equipment in seconds with indoor RTLS, monitor patient vitals remotely, automate clinical workflows, and ensure full regulatory compliance — all from a unified clinical operations dashboard.",
+      "features": [
+        "Indoor RTLS: real-time location of staff, patients & equipment",
+        "Remote patient vital signs monitoring",
+        "Medical equipment lifecycle & preventive maintenance",
+        "Medication refrigerator & cold storage monitoring",
+        "Nurse call & emergency response system integration",
+        "Hand hygiene compliance tracking",
+        "EMR & HIS integration",
+        "PDPL-compliant patient data security"
+      ],
+      "statLabels": ["Asset Search Time Reduction", "Equipment Utilisation Increase", "Emergency Alert Response", "Compliance Traceability"],
+      "useCases": ["General hospitals", "Specialty clinics", "Rehabilitation centres", "Elderly care homes", "Emergency departments"],
+      "industries": ["Healthcare", "Pharmaceuticals", "Elderly Care"]
+    }
   }
 }

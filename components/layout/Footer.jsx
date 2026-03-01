@@ -1,10 +1,14 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '../../lib/navigation-helpers';
+import { Building, Building2, Factory, Leaf, Truck, Activity } from 'lucide-react';
 import { PRODUCTS } from '../../lib/products';
+
+const ICON_MAP = { Building, Building2, Factory, Leaf, Truck, Activity };
 
 export default function Footer() {
   const t = useTranslations('footer');
   const tc = useTranslations('nav');
+  const ta = useTranslations('about');
   const year = new Date().getFullYear();
 
   const companyLinks = [
@@ -33,16 +37,20 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{t('solutions')}</h4>
             <ul className="space-y-2">
-              {PRODUCTS.map(p => (
-                <li key={p.slug}>
-                  <Link href={`/solutions/${p.slug}`}
-                    className="text-sm hover:text-white transition flex items-center gap-1.5">
-                    <span>
-                      {p.image ? <img src={p.image} alt={p.name} className="w-4 h-4 object-cover rounded" /> : p.icon}
-                    </span> {p.name}
-                  </Link>
-                </li>
-              ))}
+              {PRODUCTS.map(p => {
+                const Icon = ICON_MAP[p.lucideIcon] || Building;
+                return (
+                  <li key={p.slug}>
+                    <Link href={`/solutions/${p.slug}`}
+                      className="text-sm hover:text-white transition flex items-center gap-2">
+                      <div className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0" style={{ background: p.color + '25' }}>
+                        <Icon size={10} style={{ color: p.color }} />
+                      </div>
+                      {p.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -60,9 +68,9 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{t('contact')}</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="mailto:m.shafiee.osama@outlook.com" className="hover:text-white transition break-all">m.shafiee.osama@outlook.com</a></li>
-              <li><a href="https://wa.me/966562077165" className="hover:text-white transition">+966 56 207 7165</a></li>
-              <li className="text-gray-500">Saudi Arabia · GCC · Middle East</li>
+              <li><a href={`mailto:${ta('email')}`} className="hover:text-white transition break-all">{ta('email')}</a></li>
+              <li><a href="https://wa.me/966562077165" className="hover:text-white transition">{ta('phone')}</a></li>
+              <li className="text-gray-500">{t('location')}</li>
             </ul>
           </div>
         </div>

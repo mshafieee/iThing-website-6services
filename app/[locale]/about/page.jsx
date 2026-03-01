@@ -38,7 +38,7 @@ export default function AboutPage({ params: { locale } }) {
                 <Mail size={20} className="text-blue-600" />
               </div>
               <div>
-                <div className="text-xs text-gray-400 font-medium">Email</div>
+                <div className="text-xs text-gray-400 font-medium">{t('emailLabel')}</div>
                 <div className="font-semibold text-gray-900">{t('email')}</div>
               </div>
               <ArrowRight size={16} className="ms-auto text-gray-300 group-hover:text-blue-500 transition" />
@@ -49,7 +49,7 @@ export default function AboutPage({ params: { locale } }) {
                 <Phone size={20} className="text-green-600" />
               </div>
               <div>
-                <div className="text-xs text-gray-400 font-medium">WhatsApp</div>
+                <div className="text-xs text-gray-400 font-medium">{t('whatsappLabel')}</div>
                 <div className="font-semibold text-gray-900">{t('phone')}</div>
               </div>
               <ArrowRight size={16} className="ms-auto text-gray-300 group-hover:text-green-500 transition" />
@@ -59,7 +59,7 @@ export default function AboutPage({ params: { locale } }) {
                 <MapPin size={20} className="text-gray-500" />
               </div>
               <div>
-                <div className="text-xs text-gray-400 font-medium">Location</div>
+                <div className="text-xs text-gray-400 font-medium">{t('locationLabel')}</div>
                 <div className="font-semibold text-gray-900">{t('location')}</div>
               </div>
             </div>

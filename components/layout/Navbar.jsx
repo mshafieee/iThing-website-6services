@@ -2,8 +2,10 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname, useRouter } from '../../lib/navigation-helpers';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Building, Building2, Factory, Leaf, Truck, Activity } from 'lucide-react';
 import { PRODUCTS } from '../../lib/products';
+
+const ICON_MAP = { Building, Building2, Factory, Leaf, Truck, Activity };
 
 export default function Navbar() {
   const t = useTranslations('nav');
@@ -47,15 +49,18 @@ export default function Navbar() {
               </button>
               {solutionsOpen && (
                 <div className="absolute top-full start-0 mt-1 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 p-2 grid grid-cols-2 gap-1">
-                  {PRODUCTS.map(p => (
-                    <Link key={p.slug} href={`/solutions/${p.slug}`}
-                      className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-50 transition group">
-                      <span className="text-lg">
-                        {p.image ? <img src={p.image} alt={p.name} className="w-5 h-5 object-cover rounded" /> : p.icon}
-                      </span>
-                      <span className="text-sm font-semibold text-gray-700 group-hover:text-gray-900">{p.name}</span>
-                    </Link>
-                  ))}
+                  {PRODUCTS.map(p => {
+                    const Icon = ICON_MAP[p.lucideIcon] || Building;
+                    return (
+                      <Link key={p.slug} href={`/solutions/${p.slug}`}
+                        className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-50 transition group">
+                        <div className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0" style={{ background: p.color + '18' }}>
+                          <Icon size={12} style={{ color: p.color }} />
+                        </div>
+                        <span className="text-sm font-semibold text-gray-700 group-hover:text-gray-900">{p.name}</span>
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -97,14 +102,18 @@ export default function Navbar() {
         <div className="lg:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-1">
           <Link href="/" onClick={() => setOpen(false)} className="block px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">{t('home')}</Link>
           <div className="px-3 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider">{t('solutions')}</div>
-          {PRODUCTS.map(p => (
-            <Link key={p.slug} href={`/solutions/${p.slug}`} onClick={() => setOpen(false)}
-              className="flex items-center gap-2 ps-6 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">
-              <span>
-                {p.image ? <img src={p.image} alt={p.name} className="w-5 h-5 object-cover rounded" /> : p.icon}
-              </span> {p.name}
-            </Link>
-          ))}
+          {PRODUCTS.map(p => {
+            const Icon = ICON_MAP[p.lucideIcon] || Building;
+            return (
+              <Link key={p.slug} href={`/solutions/${p.slug}`} onClick={() => setOpen(false)}
+                className="flex items-center gap-2 ps-6 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">
+                <div className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0" style={{ background: p.color + '18' }}>
+                  <Icon size={12} style={{ color: p.color }} />
+                </div>
+                {p.name}
+              </Link>
+            );
+          })}
           {links.slice(1).map(l => (
             <Link key={l.href} href={l.href} onClick={() => setOpen(false)}
               className="block px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">{l.label}</Link>

@@ -39,9 +39,9 @@ export default function PlatformPage({ params: { locale } }) {
       {/* Architecture diagram (text-based) */}
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-black text-gray-900 mb-8">End-to-End Architecture</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-8">{t('architectureTitle')}</h2>
           <div className="flex flex-col lg:flex-row items-center justify-center gap-4 text-sm">
-            {['Edge Sensors', 'Gateway / MQTT', 'Cloud Platform', 'Dashboard / API'].map((layer, i) => (
+            {t.raw('layers').map((layer, i) => (
               <div key={layer} className="flex items-center gap-4">
                 <div className="px-6 py-4 bg-gray-50 rounded-2xl border border-gray-200 font-semibold text-gray-700">
                   {layer}
