@@ -1,16 +1,16 @@
 import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '../../../lib/navigation-helpers';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Building, Building2, Factory, Leaf, Truck, Activity } from 'lucide-react';
 import { PRODUCTS } from '../../../lib/products';
 
 const INDUSTRY_MAP = [
-  { key: 'hospitality', icon: '🏨', products: ['ihotel'], color: '#2563EB' },
-  { key: 'buildings',   icon: '🏢', products: ['ibms'],   color: '#059669' },
-  { key: 'industrial',  icon: '🏭', products: ['ifactory'], color: '#D97706' },
-  { key: 'agriculture', icon: '🌱', products: ['iagrix'], color: '#16A34A' },
-  { key: 'logistics',   icon: '🚛', products: ['irtls'],  color: '#7C3AED' },
-  { key: 'healthcare',  icon: '🏥', products: ['imedical'], color: '#DC2626' },
+  { key: 'hospitality', Icon: Building,  products: ['ihotel'],    color: '#2563EB' },
+  { key: 'buildings',   Icon: Building2, products: ['ibms'],      color: '#059669' },
+  { key: 'industrial',  Icon: Factory,   products: ['ifactory'],  color: '#D97706' },
+  { key: 'agriculture', Icon: Leaf,      products: ['iagrix'],    color: '#16A34A' },
+  { key: 'logistics',   Icon: Truck,     products: ['irtls'],     color: '#7C3AED' },
+  { key: 'healthcare',  Icon: Activity,  products: ['imedical'],  color: '#DC2626' },
 ];
 
 export default function IndustriesPage({ params: { locale } }) {
@@ -30,28 +30,26 @@ export default function IndustriesPage({ params: { locale } }) {
             {INDUSTRY_MAP.map(ind => {
               const item = t.raw(`items.${ind.key}`);
               const relatedProducts = PRODUCTS.filter(p => ind.products.includes(p.slug));
+              const { Icon } = ind;
               return (
-                <div key={ind.key} className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden"
+                <div key={ind.key} className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all"
+                  style={{ borderTopWidth: 3, borderTopColor: ind.color, borderTopStyle: 'solid' }}>
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
                       style={{ background: ind.color + '14' }}>
-                      {relatedProducts[0]?.image ? (
-                        <img src={relatedProducts[0].image} alt={item.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <span className="text-2xl">{ind.icon}</span>
-                      )}
+                      <Icon size={22} style={{ color: ind.color }} />
                     </div>
                     <div>
-                      <h3 className="font-black text-gray-900">{item.name}</h3>
+                      <h3 className="font-black text-gray-900 text-base">{item.name}</h3>
                       <p className="text-sm text-gray-500 mt-1 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
-                  <div className="flex flex-wrap gap-2 mt-4">
+                  <div className="flex flex-wrap gap-2">
                     {relatedProducts.map(p => (
                       <Link key={p.slug} href={`/solutions/${p.slug}`}
-                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold transition"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition hover:opacity-80"
                         style={{ background: p.color + '14', color: p.color }}>
-                        {p.image ? <img src={p.image} alt={p.name} className="w-4 h-4 object-cover rounded" /> : <span>{p.icon}</span>} {p.name} <ArrowRight size={12} />
+                        {p.name} <ArrowRight size={12} />
                       </Link>
                     ))}
                   </div>

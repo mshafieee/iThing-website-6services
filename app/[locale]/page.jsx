@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '../../lib/navigation-helpers';
-import { ArrowRight, Wifi, BarChart3, Shield, Zap, ChevronRight } from 'lucide-react';
+import { ArrowRight, Wifi, BarChart3, Shield, Zap, ChevronRight, Building, Building2, Factory, Leaf, Truck, Activity } from 'lucide-react';
 import { PRODUCTS } from '../../lib/products';
 
 export async function generateMetadata() {
@@ -21,6 +21,8 @@ const TECH = [
   { icon: Shield, title: 'Enterprise Security', desc: 'PDPL-compliant, end-to-end encryption' },
   { icon: Zap, title: 'Edge to Cloud', desc: 'Real-time response with 100–500Hz sampling' },
 ];
+
+const SLUG_ICON_MAP = { ihotel: Building, ibms: Building2, ifactory: Factory, iagrix: Leaf, irtls: Truck, imedical: Activity };
 
 export default function HomePage({ params: { locale } }) {
   setRequestLocale(locale);
@@ -66,14 +68,16 @@ export default function HomePage({ params: { locale } }) {
 
           {/* Product badges */}
           <div className="flex flex-wrap justify-center gap-3 mt-16">
-            {PRODUCTS.map(p => (
-              <Link key={p.slug} href={`/solutions/${p.slug}`}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm text-gray-300 font-medium">
-                <span>
-                  {p.image ? <img src={p.image} alt={p.name} className="w-4 h-4 object-cover rounded" /> : p.icon}
-                </span> {p.name}
-              </Link>
-            ))}
+            {PRODUCTS.map(p => {
+              const Icon = SLUG_ICON_MAP[p.slug] || Building;
+              return (
+                <Link key={p.slug} href={`/solutions/${p.slug}`}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm text-gray-300 font-medium">
+                  <Icon size={14} style={{ color: p.color }} />
+                  {p.name}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -101,31 +105,32 @@ export default function HomePage({ params: { locale } }) {
             <p className="text-lg text-gray-500 max-w-3xl mx-auto">{t('productsSubtitle')}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PRODUCTS.map(p => (
-              <Link key={p.slug} href={`/solutions/${p.slug}`}
-                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-200 border border-gray-100 hover:border-gray-200 border-t-4"
-                style={{ borderTopColor: p.color }}>
-                <div className="flex items-start justify-between mb-4">
-                  {p.image ? (
-                    <img src={p.image} alt={p.name} className="w-16 h-16 object-cover rounded-lg" />
-                  ) : (
-                    <span className="text-4xl">{p.icon}</span>
-                  )}
-                  <ChevronRight size={18} className="text-gray-300 group-hover:text-gray-500 group-hover:translate-x-1 transition-all" />
-                </div>
-                <h3 className="text-xl font-black text-gray-900 mb-1">{p.name}</h3>
-                <p className="text-sm font-semibold mb-3" style={{ color: p.color }}>{p.tagline}</p>
-                <p className="text-sm text-gray-500 leading-relaxed">{p.shortDesc}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {p.stats.slice(0, 2).map(s => (
-                    <span key={s.label} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold"
-                      style={{ background: p.color + '14', color: p.color }}>
-                      {s.value} {s.label}
-                    </span>
-                  ))}
-                </div>
-              </Link>
-            ))}
+            {PRODUCTS.map(p => {
+              const Icon = SLUG_ICON_MAP[p.slug] || Building;
+              return (
+                <Link key={p.slug} href={`/solutions/${p.slug}`}
+                  className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-200 border border-gray-100 hover:border-gray-200 border-t-4"
+                  style={{ borderTopColor: p.color }}>
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: p.color + '14' }}>
+                      <Icon size={24} style={{ color: p.color }} />
+                    </div>
+                    <ChevronRight size={18} className="text-gray-300 group-hover:text-gray-500 group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <h3 className="text-xl font-black text-gray-900 mb-1">{p.name}</h3>
+                  <p className="text-sm font-semibold mb-3" style={{ color: p.color }}>{p.tagline}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed">{p.shortDesc}</p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {p.stats.slice(0, 2).map(s => (
+                      <span key={s.label} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold"
+                        style={{ background: p.color + '14', color: p.color }}>
+                        {s.value} {s.label}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

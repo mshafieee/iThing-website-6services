@@ -2,8 +2,11 @@ import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '../../../../lib/navigation-helpers';
 import { notFound } from 'next/navigation';
-import { CheckCircle, ArrowLeft, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowLeft, ArrowRight, Building, Building2, Factory, Leaf, Truck, Activity } from 'lucide-react';
 import { PRODUCTS, getProduct } from '../../../../lib/products';
+import DashboardPreview from '../../../../components/ui/DashboardPreview';
+
+const ICON_MAP = { Building, Building2, Factory, Leaf, Truck, Activity };
 
 export async function generateStaticParams() {
   const locales = ['en', 'ar'];
@@ -23,34 +26,54 @@ export default function ProductPage({ params: { locale, slug } }) {
   const p = product;
   const t = useTranslations('solutions');
   const tc = useTranslations('common');
+  const Icon = ICON_MAP[p.lucideIcon] || Building;
 
   const otherProducts = PRODUCTS.filter(x => x.slug !== slug).slice(0, 3);
 
   return (
     <div>
-      {/* Hero */}
+      {/* Hero — 2-column: description left, dashboard preview right */}
       <section className={`bg-gradient-to-br ${p.bgFrom} ${p.bgTo} pt-16 pb-24 px-4 relative overflow-hidden`}>
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        <div className="max-w-5xl mx-auto relative">
-          <Link href="/solutions" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium mb-8 transition">
+
+        <div className="max-w-6xl mx-auto relative">
+          <Link href="/solutions" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium mb-10 transition">
             <ArrowLeft size={16} /> {t('title')}
           </Link>
-          <div className="mb-4">
-            {p.image ? (
-              <img src={p.image} alt={p.name} className="w-24 h-24 object-cover rounded-lg mx-auto" />
-            ) : (
-              <div className="text-6xl text-white">{p.icon}</div>
-            )}
-          </div>
-          <h1 className="text-5xl lg:text-7xl font-black text-white mb-3">{p.name}</h1>
-          <p className="text-white/80 text-xl lg:text-2xl font-semibold mb-6">{p.tagline}</p>
-          <p className="text-white/70 text-lg max-w-3xl leading-relaxed">{p.description}</p>
-          <div className="flex flex-wrap gap-3 mt-10">
-            <a href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-bold rounded-xl transition hover:bg-gray-100">
-              {t('cta')} <ArrowRight size={16} />
-            </a>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: text */}
+            <div>
+              <div className="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center mb-6">
+                <Icon size={28} className="text-white" />
+              </div>
+              <h1 className="text-5xl lg:text-6xl font-black text-white mb-3 leading-none">{p.name}</h1>
+              <p className="text-white/80 text-xl font-semibold mb-5">{p.tagline}</p>
+              <p className="text-white/70 text-base leading-relaxed mb-8">{p.description}</p>
+              <div className="flex flex-wrap gap-3">
+                <a href="#contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-bold rounded-xl transition hover:bg-gray-100">
+                  {t('cta')} <ArrowRight size={16} />
+                </a>
+              </div>
+            </div>
+
+            {/* Right: live dashboard preview */}
+            <div className="lg:pl-4">
+              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/30 border border-white/10">
+                <div className="bg-[#0d1f38]/80 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
+                  <span className="ms-2 text-[10px] text-white/40 font-mono">{p.name} Dashboard — Live</span>
+                </div>
+                <div className="p-4 bg-[#0a1628]">
+                  <DashboardPreview slug={p.slug} />
+                </div>
+              </div>
+              <p className="text-white/40 text-xs text-center mt-3 font-mono">Real-time data · Demo view</p>
+            </div>
           </div>
         </div>
       </section>
@@ -119,7 +142,7 @@ export default function ProductPage({ params: { locale, slug } }) {
         <p className="text-gray-400 mb-8">{t('ctaDesc', { name: p.name })}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href={`mailto:m.shafiee.osama@outlook.com?subject=Demo Request — ${p.name}`}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-white transition"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-white transition hover:opacity-90"
             style={{ background: p.color }}>
             {tc('scheduleDemo')} <ArrowRight size={18} />
           </a>
@@ -131,21 +154,22 @@ export default function ProductPage({ params: { locale, slug } }) {
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-xl font-black text-gray-900 mb-8">Explore Other Solutions</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {otherProducts.map(op => (
-              <Link key={op.slug} href={`/solutions/${op.slug}`}
-                className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition group">
-                {op.image ? (
-                  <img src={op.image} alt={op.name} className="w-8 h-8 object-cover rounded" />
-                ) : (
-                  <span className="text-3xl">{op.icon}</span>
-                )}
-                <div>
-                  <div className="font-black text-gray-900">{op.name}</div>
-                  <div className="text-xs text-gray-500 font-medium">{op.tagline}</div>
-                </div>
-                <ArrowRight size={16} className="ms-auto text-gray-300 group-hover:text-gray-500 group-hover:translate-x-1 transition-all" />
-              </Link>
-            ))}
+            {otherProducts.map(op => {
+              const OtherIcon = ICON_MAP[op.lucideIcon] || Building;
+              return (
+                <Link key={op.slug} href={`/solutions/${op.slug}`}
+                  className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition group">
+                  <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: op.color + '14' }}>
+                    <OtherIcon size={18} style={{ color: op.color }} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="font-black text-gray-900 truncate">{op.name}</div>
+                    <div className="text-xs text-gray-500 font-medium truncate">{op.tagline}</div>
+                  </div>
+                  <ArrowRight size={16} className="ms-auto flex-shrink-0 text-gray-300 group-hover:text-gray-500 group-hover:translate-x-1 transition-all" />
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
